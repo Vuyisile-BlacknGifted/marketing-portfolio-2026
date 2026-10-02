@@ -1,0 +1,1263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vuyisile Phika | Growth marketer and content strategist</title>
+    <style>
+      :root {
+        --bg-dark: #08111d;
+        --bg-mid: #0d172a;
+        --panel: rgba(15, 23, 42, 0.8);
+        --panel-light: rgba(255,255,255,0.88);
+        --text: #e2e8f0;
+        --muted: #94a3b8;
+        --dark-text: #0f172a;
+        --cyan: #5eead4;
+        --purple: #8b5cf6;
+        --card-border: rgba(148, 163, 184, 0.22);
+        --shadow: 0 30px 80px rgba(15, 23, 42, 0.35);
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, #08111d 0%, #0f172a 100%);
+        color: var(--text);
+      }
+
+      img { max-width: 100%; display: block; }
+      a { color: inherit; text-decoration: none; }
+      button { font: inherit; }
+
+      .container-page {
+        width: min(1200px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(12px);
+        background: rgba(2, 6, 23, 0.8);
+        border-bottom: 1px solid rgba(94, 234, 212, 0.1);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 72px;
+      }
+
+      .brand {
+        color: #fff;
+        font-size: 1.15rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .nav {
+        display: flex;
+        gap: 2rem;
+        color: #cbd5e1;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .nav a { opacity: 0.9; }
+      .nav a:hover { color: var(--cyan); }
+
+      .hero-section {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(94, 234, 212, 0.12);
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.25fr 0.75fr;
+        align-items: center;
+        gap: 3rem;
+        padding: 5rem 0 4rem;
+      }
+
+      .eyebrow {
+        color: var(--cyan);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-size: 0.7rem;
+        font-weight: 800;
+      }
+
+      h1 {
+        margin: 1rem 0 0;
+        font-size: clamp(3rem, 7vw, 6rem);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+        font-weight: 800;
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, #5eead4 0%, #a78bfa 50%, #5eead4 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero-subtitle {
+        margin-top: 1.5rem;
+        font-size: clamp(1.2rem, 2vw, 2rem);
+        font-weight: 700;
+        color: #cbd5e1;
+      }
+
+      .hero-copy {
+        max-width: 760px;
+        color: #cbd5e1;
+        line-height: 1.75;
+        font-size: 1.08rem;
+      }
+
+      .pill-row {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.9rem;
+      }
+
+      .pill {
+        padding: 0.7rem 1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(94, 234, 212, 0.22);
+        background: rgba(94, 234, 212, 0.07);
+        color: #e2e8f0;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .pill strong { font-weight: 800; }
+
+      .button-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        border-radius: 0.9rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 800;
+        background: linear-gradient(90deg, var(--cyan), var(--purple));
+        color: white;
+        box-shadow: 0 12px 25px rgba(94, 234, 212, 0.22);
+      }
+
+      .hero-visual {
+        display: flex;
+        justify-content: center;
+      }
+
+      .portrait-card {
+        position: relative;
+        padding: 0.9rem;
+        width: min(100%, 390px);
+        border-radius: 2rem;
+        border: 2px solid rgba(94, 234, 212, 0.3);
+        background: linear-gradient(160deg, rgba(255,255,255,0.1), rgba(255,255,255,0.04));
+        box-shadow: 0 20px 60px rgba(15, 23, 42, 0.45);
+      }
+
+      .portrait-card img {
+        width: 100%;
+        border-radius: 1.4rem;
+      }
+
+      .stats-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+        padding: 2rem 0 0;
+      }
+
+      .stat-box {
+        padding: 1.6rem 1rem;
+        border-radius: 1.25rem;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(148,163,184,0.16);
+        text-align: center;
+      }
+
+      .stat-box strong {
+        display: block;
+        font-size: clamp(1.8rem, 3vw, 2.8rem);
+        font-weight: 900;
+        color: #fff;
+      }
+
+      .stat-box span {
+        display: block;
+        margin-top: 0.4rem;
+        color: #cbd5e1;
+        font-size: 0.78rem;
+        text-transform: lowercase;
+      }
+
+      .section {
+        padding: 5.5rem 0;
+      }
+
+      .section-light {
+        background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+        color: var(--dark-text);
+      }
+
+      .section-dark {
+        background: linear-gradient(180deg, #070d18 0%, #0f172a 100%);
+      }
+
+      .section-heading {
+        margin-bottom: 2rem;
+      }
+
+      .section-heading .eyebrow {
+        color: var(--cyan);
+      }
+
+      .section-light .section-heading .eyebrow,
+      .section-light .section-heading h2,
+      .section-light .section-heading p,
+      .section-light .strengths li,
+      .section-light .project-card,
+      .section-light .project-meta,
+      .section-light .link-group,
+      .section-light .group-title,
+      .section-light .group-link,
+      .section-light .contact-box {
+        color: var(--dark-text);
+      }
+
+      .section-heading h2 {
+        margin: 0.8rem 0 0;
+        font-size: clamp(2.1rem, 4vw, 3rem);
+        line-height: 1.1;
+        letter-spacing: -0.04em;
+      }
+
+      .section-heading p {
+        margin-top: 1rem;
+        max-width: 760px;
+        color: #475569;
+        line-height: 1.75;
+      }
+
+      .strengths {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        list-style: none;
+        padding: 0;
+        margin: 1.5rem 0 0;
+      }
+
+      .strengths li {
+        padding: 1.4rem 1.2rem;
+        border: 2px solid rgba(94, 234, 212, 0.24);
+        border-radius: 1rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, rgba(94,234,212,0.09), rgba(139,92,246,0.04));
+      }
+
+      .summary-box {
+        margin-top: 2rem;
+        padding: 2rem;
+        border: 1px solid rgba(148,163,184,0.3);
+        border-radius: 1.5rem;
+        background: rgba(255,255,255,0.82);
+        box-shadow: 0 14px 30px rgba(15,23,42,0.06);
+      }
+
+      .summary-box p {
+        margin: 0;
+        color: #334155;
+        line-height: 1.78;
+        font-size: 1.05rem;
+      }
+
+      .projects-list {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .project-card {
+        background: rgba(15, 23, 42, 0.72);
+        border: 1px solid rgba(148,163,184,0.18);
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        color: #e2e8f0;
+        box-shadow: var(--shadow);
+      }
+
+      .project-card h3 {
+        margin: 0 0 0.8rem;
+        font-size: 1.6rem;
+      }
+
+      .project-card p {
+        margin: 0 0 1rem;
+        line-height: 1.8;
+        color: #dfe7f4;
+      }
+
+      .project-card .impact-label {
+        margin-top: 1rem;
+        color: var(--cyan);
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-top: 1rem;
+      }
+
+      .project-links a {
+        display: inline-block;
+        padding: 0.55rem 0.8rem;
+        border-radius: 999px;
+        border: 1px solid rgba(94, 234, 212, 0.28);
+        background: rgba(94, 234, 212, 0.06);
+        color: #dffef9;
+        font-size: 0.78rem;
+        font-weight: 700;
+      }
+
+      .accordion {
+        padding: 0.7rem 0 0;
+      }
+
+      .media-shell {
+        background: linear-gradient(160deg, rgba(15,23,42,0.96), rgba(15,23,42,0.94));
+        border: 1px solid rgba(94,234,212,0.18);
+        border-radius: 2rem;
+        padding: 1.2rem;
+        box-shadow: 0 30px 80px rgba(15, 23, 42, 0.18);
+      }
+
+      .media-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .media-header h3 {
+        margin: 0;
+        font-size: 1.7rem;
+        color: #fff;
+      }
+
+      .arrow-controls {
+        display: flex;
+        gap: 0.55rem;
+      }
+
+      .arrow-button {
+        appearance: none;
+        border: 1px solid rgba(255,255,255,0.14);
+        background: rgba(255,255,255,0.05);
+        color: #fff;
+        width: 2.7rem;
+        height: 2.7rem;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1.4rem;
+      }
+
+      .media-frame {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1.25rem;
+        background: #020817;
+        border: 1px solid rgba(94,234,212,0.18);
+      }
+
+      .media-image-wrap {
+        position: relative;
+        height: 430px;
+        overflow: hidden;
+      }
+
+      .media-image-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .media-caption {
+        position: absolute;
+        left: 1.2rem;
+        right: 1.2rem;
+        bottom: 1.2rem;
+        border-radius: 1rem;
+        background: rgba(2, 6, 23, 0.75);
+        border: 1px solid rgba(255,255,255,0.08);
+        backdrop-filter: blur(10px);
+        padding: 0.9rem 1rem;
+      }
+
+      .caption-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: center;
+        color: var(--cyan);
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+
+      .caption-copy {
+        margin-top: 0.55rem;
+        color: #e2e8f0;
+        line-height: 1.6;
+      }
+
+      .slider-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.55rem;
+        margin-top: 1rem;
+      }
+
+      .slider-dot {
+        display: inline-block;
+        width: 0.9rem;
+        height: 0.9rem;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.18);
+        border: none;
+        cursor: pointer;
+      }
+
+      .slider-dot.active {
+        width: 2.7rem;
+        background: linear-gradient(90deg, var(--cyan), var(--purple));
+      }
+
+      .design-grid {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      .design-segment {
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        border-radius: 1.5rem;
+        background: rgba(255,255,255,0.75);
+        padding: 1.25rem;
+        box-shadow: 0 12px 30px rgba(15,23,42,0.06);
+      }
+
+      .segment-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .segment-head h3 {
+        margin: 0;
+        color: var(--dark-text);
+        font-size: 1.8rem;
+      }
+
+      .segment-chip {
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(94,234,212,0.08);
+        border: 1px solid rgba(94,234,212,0.28);
+        color: #036666;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .segment-images {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .segment-image {
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 1px solid rgba(148,163,184,0.2);
+        background: #f8fafc;
+        min-height: 240px;
+        position: relative;
+      }
+
+      .segment-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .mini-game {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .game-copy {
+        background: rgba(255,255,255,0.75);
+        border: 1px solid rgba(148,163,184,0.25);
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        color: var(--dark-text);
+      }
+
+      .game-copy ul {
+        margin: 1rem 0 0;
+        padding-left: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .game-box {
+        background: linear-gradient(160deg, rgba(15,23,42,0.95), rgba(15,23,42,0.85));
+        padding: 1.2rem;
+        border-radius: 1.5rem;
+        border: 1px solid rgba(94,234,212,0.22);
+      }
+
+      canvas {
+        display: block;
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+        border-radius: 1rem;
+        border: 1px solid rgba(255,255,255,0.1);
+        background: #020817;
+      }
+
+      .links-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .link-group {
+        padding: 1.5rem;
+        border-radius: 1.2rem;
+        border: 1px solid rgba(148,163,184,0.2);
+        background: rgba(255,255,255,0.75);
+      }
+
+      .link-group h3 {
+        margin: 0 0 1rem;
+        font-size: 1.2rem;
+        color: var(--dark-text);
+      }
+
+      .link-group a {
+        display: block;
+        margin-top: 0.65rem;
+        color: #0f172a;
+        font-weight: 700;
+      }
+
+      .contact-box {
+        position: relative;
+        overflow: hidden;
+        padding: 2rem;
+        border-radius: 2rem;
+        background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(255,255,255,0.94));
+        border: 1px solid rgba(148,163,184,0.2);
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+      }
+
+      .contact-box h2 {
+        margin: 0;
+        color: #0f172a;
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+
+      .contact-box p {
+        color: #475569;
+        line-height: 1.75;
+        max-width: 760px;
+      }
+
+      .contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+        margin-top: 1.5rem;
+      }
+
+      .contact-list a {
+        color: #0f172a;
+        font-weight: 700;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .mini-game,
+        .links-grid,
+        .segment-images {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          display: none;
+        }
+
+        .stats-strip {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 600px) {
+        .stats-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 4rem 0;
+        }
+
+        .project-card,
+        .summary-box,
+        .media-shell,
+        .design-segment,
+        .contact-box,
+        .game-copy,
+        .game-box {
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="container-page header-inner">
+        <a href="#top" class="brand">Vuyisile Phika</a>
+        <div class="nav">
+          <a href="#top">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#media-content">Media</a>
+          <a href="#design-collateral">Design</a>
+          <a href="#links">Links</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero-section">
+        <div class="container-page hero-grid">
+          <div>
+            <p class="eyebrow">Portfolio</p>
+            <h1><span class="gradient-text">Vuyisile</span> Phika</h1>
+            <p class="hero-subtitle">Growth Marketer &amp; Brand Strategist</p>
+            <p class="hero-copy">
+              I help brands grow through marketing, business strategy and strong brand positioning. I develop and execute strategies across marketing, digital marketing, content creation and branding, connecting business goals with the right audiences and opportunities. My focus is on building clear, relevant brands while driving stronger visibility, engagement and measurable growth.
+            </p>
+            <div class="pill-row">
+              <div class="pill"><strong>35%</strong> engagement growth</div>
+              <div class="pill"><strong>40%</strong> reach lift</div>
+              <div class="pill"><strong>20%</strong> program interactions</div>
+            </div>
+            <a href="#projects" class="button-link">View My Work</a>
+          </div>
+
+          <div class="hero-visual">
+            <div class="portrait-card">
+              <img src="public/vuyisile-phika.png" alt="Vuyisile Phika portrait" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-light">
+        <div class="container-page">
+          <div class="stats-strip">
+            <div class="stat-box"><strong>35%</strong><span>engagement growth</span></div>
+            <div class="stat-box"><strong>40%</strong><span>reach lift</span></div>
+            <div class="stat-box"><strong>20%</strong><span>program interactions</span></div>
+            <div class="stat-box"><strong>100%</strong><span>growth-focused execution</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-light" id="about">
+        <div class="container-page">
+          <div class="section-heading">
+            <p class="eyebrow">About</p>
+            <h2>Clear strategy, strong content, and focused growth execution</h2>
+            <p>I work across social media, campaigns, and content systems to help brands communicate better and grow with consistency. My approach combines creative direction with performance tracking.</p>
+          </div>
+
+          <ul class="strengths">
+            <li>Social media strategy</li>
+            <li>Content creation</li>
+            <li>Campaign execution</li>
+            <li>Analytics and performance tracking</li>
+          </ul>
+
+          <div class="summary-box">
+            <p>
+              I help brands grow through marketing, business strategy and strong brand positioning. I develop and execute strategies across marketing, digital marketing, content creation and branding, connecting business goals with the right audiences and opportunities. My focus is on building clear, relevant brands while driving stronger visibility, engagement and measurable growth.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark" id="projects">
+        <div class="container-page">
+          <div class="section-heading">
+            <p class="eyebrow">Main Work</p>
+            <h2>Projects</h2>
+            <p>Detailed case studies covering strategy, copy, campaign execution, and measurable impact.</p>
+          </div>
+
+          <div class="projects-list">
+            <article class="project-card">
+              <h3>Lean Scaling Co</h3>
+              <p>At Lean Scaling Co, I support the digital marketing and content efforts that position the company as a thought leader in scalable growth and operational strategy. My work includes writing and developing SEO-driven blog articles that break down key topics such as scalable growth, leadership structure, and operational systems for founders and service-based businesses. I also support the rollout of digital campaigns by managing social media content, preparing posts, and coordinating content schedules. Alongside content creation, I track campaign performance across digital channels. This involves reviewing how content performs, identifying which topics resonate most with the audience, and making adjustments to improve reach and engagement.</p>
+              <div class="impact-label">Impact</div>
+              <p>In my role, I have taken ownership of content development and execution across blog and social platforms. Over the past 5 months, this has contributed to a steady 12–15% increase in overall social media engagement, while also improving consistency in posting and clarity in messaging across channels.</p>
+              <div class="project-links">
+                <a href="https://www.leanscaling.com/lean-scaling-system" target="_blank" rel="noreferrer">Lean Scaling System</a>
+                <a href="https://www.instagram.com/leanscalingco" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="https://www.strategicopsinstitute.com/blog" target="_blank" rel="noreferrer">Strategic Ops Blog</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>Sukume</h3>
+              <p>For Sukume, I worked on developing the website copy, focusing on clearly communicating the company vision, offering, and positioning. The platform brings together elements of technology, creativity, and culture, and the goal of the copy was to make that clear and easy to understand for a broader audience.</p>
+              <div class="impact-label">Impact</div>
+              <p>I led the full website copywriting, helping shape how the business presents itself online. The work made the messaging more clear and aligned across pages, which supported better understanding from both partners and users. I also contributed to broader strategy work across projects in tech, art, and fashion, while maintaining strong working relationships with stakeholders both locally and internationally.</p>
+              <div class="project-links">
+                <a href="https://sukume.com/" target="_blank" rel="noreferrer">Visit Sukume</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>Botlhale AI (Project Lead at Sukume)</h3>
+              <p>I worked with Botlhale AI on developing their social media strategy, as well as writing the About page for their website. The focus was on positioning the brand clearly within the AI space, while making their offering accessible and relevant to their target audience.</p>
+              <div class="impact-label">Impact</div>
+              <p>The work helped strengthen their brand positioning and messaging within the AI space. It also supported visibility through industry workshops and conferences, where the brand was able to connect with relevant partners and stakeholders.</p>
+              <div class="project-links">
+                <a href="https://docs.google.com/presentation/d/1arJByUkDiRDEJ02OEFSJctPKShR32NoP/edit" target="_blank" rel="noreferrer">Strategy Deck</a>
+                <a href="https://botlhale.ai/about-us-multilingual-solutions/" target="_blank" rel="noreferrer">About Page</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>Sobae Frozen (Project Lead at Sukume)</h3>
+              <p>I worked with Sobae Frozen to support their brand positioning and execution across social media platforms. My role focused on aligning their content with their overall business direction, making sure the messaging reflected their product offering and brand identity.</p>
+              <div class="impact-label">Impact</div>
+              <p>Through refining their marketing and content approach, the brand was able to present itself more clearly and consistently online. This helped improve how the business communicates its value to its audience.</p>
+              <div class="project-links">
+                <a href="https://www.instagram.com/sobaefrozen/?hl=en" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="https://docs.google.com/presentation/d/1A0nHdS0uIjVgI6z1DBDI_Gd78AW6QehB/edit?usp=drive_link&ouid=118223080494002328923&rtpof=true&sd=true" target="_blank" rel="noreferrer">Strategy Presentation</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>Moja Love</h3>
+              <p>At Moja Love, I was part of the team that led social media strategy and content creation across multiple platforms. I personally developed campaign strategies that amplified audience engagement, improved brand visibility, and positioned the network as a leader in relatable, local entertainment.</p>
+              <div class="impact-label">Impact</div>
+              <p>Boosted Instagram and Facebook engagement by 35% in six months. Increased post reach by 40% through data-driven content optimization. Strengthened audience connection with on-air shows, contributing to a 20% increase in program-driven digital interactions.</p>
+              <div class="project-links">
+                <a href="https://x.com/mojalovetv" target="_blank" rel="noreferrer">X Profile</a>
+                <a href="https://www.instagram.com/mojalovetv/" target="_blank" rel="noreferrer">Instagram</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>Sizwe Studios (Pulse &amp; MXF Cultural Festival)</h3>
+              <p>I’ve worked closely with the Content Director and Producer at Sizwe Studios, where I supported the curation and direction of content for their Pulse segment, as well as the recent MXF Cultural Festival. In both projects, I helped bring different content pieces together into a final product that met the needs of two separate stakeholders. I also worked as an Executive Strategy Director on a number of their projects, in collaboration with and under the guidance of Ngangezwe Khumalo.</p>
+              <div class="impact-label">Impact</div>
+              <p>Delivered structured content outputs that aligned stakeholders, improved production direction, and strengthened the final on-air/digital experience for Pulse and festival programming.</p>
+              <div class="project-links">
+                <a href="https://www.instagram.com/sizwe.studio/" target="_blank" rel="noreferrer">Sizwe Studios</a>
+                <a href="https://www.instagram.com/thisis_pulse/" target="_blank" rel="noreferrer">Pulse</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>Wakanda Food Accelerator</h3>
+              <p>I developed the corporate identity (CI) guidelines for Wakanda Food Accelerator and led the logo redesign project. While I didn't design the logo myself, I managed the designer and provided strategic direction to ensure the final design aligned with the client's vision and brand objectives.</p>
+              <div class="impact-label">Impact</div>
+              <p>The new logo and CI revitalized Wakanda's brand, giving it a modern, elegant, and visually appealing identity that resonated with its audience. Strengthened the brand's presence across digital platforms, including the website and social media, improving overall digital perception. The CI guidelines clarified the brand's core principles, ensuring consistent application across physical and digital assets. Designed key brand collateral, including stationery, signage, and uniforms, reinforcing a cohesive and professional brand experience.</p>
+              <div class="project-links">
+                <a href="https://drive.google.com/file/d/1IsQDkXQjvy4ER0FBWZdv-aAPUslnOKBJ/view?usp=drive_link" target="_blank" rel="noreferrer">Brand Guide PDF</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>Ferdinand Louw Interiors</h3>
+              <p>I developed the social media strategy and managed the Instagram page from 2023 to 2024. The focus was on building a strong and consistent brand presence from the ground up.</p>
+              <div class="impact-label">Impact</div>
+              <p>I grew the Instagram page from 0 to over 150 followers within the first 3 months through consistent posting and clear positioning. This laid a solid foundation for the brand online presence.</p>
+              <div class="project-links">
+                <a href="https://www.instagram.com/ferdilouw_interiors" target="_blank" rel="noreferrer">Instagram</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-light" id="media-content">
+        <div class="container-page">
+          <div class="section-heading">
+            <p class="eyebrow">Media</p>
+            <h2>Media &amp; campaign highlights</h2>
+            <p>A simple look at the work behind the strategy: campaign visuals, performance snapshots, and brand content created to support growth.</p>
+          </div>
+
+          <div class="media-shell">
+            <div class="media-header">
+              <h3 id="mediaTitle">Portfolio image 01</h3>
+              <div class="arrow-controls">
+                <button class="arrow-button" id="prevMedia" aria-label="Previous media item">&#8592;</button>
+                <button class="arrow-button" id="nextMedia" aria-label="Next media item">&#8594;</button>
+              </div>
+            </div>
+
+            <div class="media-frame">
+              <div class="media-image-wrap">
+                <img id="mediaImage" src="Images/Screenshot%202026-04-08%20at%2016.24.59.png" alt="Portfolio image 01" />
+              </div>
+              <div class="media-caption">
+                <div class="caption-top">
+                  <span id="mediaCategory">Campaign work</span>
+                  <span id="mediaCounter">1 / 21</span>
+                </div>
+                <div class="caption-copy" id="mediaHelper">A clear visual showing the quality and direction of my campaign work.</div>
+              </div>
+            </div>
+
+            <div class="slider-dots" id="sliderDots"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-light" id="design-collateral">
+        <div class="container-page">
+          <div class="section-heading">
+            <p class="eyebrow">Design collateral</p>
+            <h2>Segmented creative work</h2>
+            <p>Selected visuals and deliverables grouped by project, brand, and campaign work so each body of work can be reviewed clearly.</p>
+          </div>
+
+          <div class="design-grid" id="designGrid"></div>
+        </div>
+      </section>
+
+      <section class="section section-light" id="arcade">
+        <div class="container-page">
+          <div class="section-heading">
+            <p class="eyebrow">Play</p>
+            <h2>A quick break for anyone reviewing the portfolio</h2>
+            <p>This portfolio is built to feel strategic and polished, but it also keeps a little personality built in. Take a moment and play a quick round of Snake while you browse.</p>
+          </div>
+
+          <div class="mini-game">
+            <div class="game-copy">
+              <p class="eyebrow">Why it works</p>
+              <ul>
+                <li>Builds a memorable, high-end brand impression.</li>
+                <li>Keeps the core CV story visible and intact.</li>
+                <li>Adds interactive personality without distracting from the work.</li>
+              </ul>
+            </div>
+
+            <div class="game-box">
+              <canvas id="snakeCanvas" width="420" height="420" aria-label="Snake game"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-light" id="links">
+        <div class="container-page">
+          <div class="section-heading">
+            <p class="eyebrow">Access</p>
+            <h2>Project Links</h2>
+            <p>All relevant links grouped by project for quick access.</p>
+          </div>
+
+          <div class="links-grid">
+            <div class="link-group">
+              <h3>Lean Scaling Co</h3>
+              <a href="https://www.leanscaling.com/lean-scaling-system" target="_blank" rel="noreferrer">Lean Scaling System</a>
+              <a href="https://www.instagram.com/leanscalingco" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://www.strategicopsinstitute.com/blog" target="_blank" rel="noreferrer">Strategic Ops Blog</a>
+            </div>
+
+            <div class="link-group">
+              <h3>Sukume</h3>
+              <a href="https://sukume.com/" target="_blank" rel="noreferrer">Website</a>
+            </div>
+
+            <div class="link-group">
+              <h3>Botlhale AI</h3>
+              <a href="https://docs.google.com/presentation/d/1arJByUkDiRDEJ02OEFSJctPKShR32NoP/edit" target="_blank" rel="noreferrer">Strategy Deck</a>
+              <a href="https://botlhale.ai/about-us-multilingual-solutions/" target="_blank" rel="noreferrer">About Page</a>
+            </div>
+
+            <div class="link-group">
+              <h3>Sobae Frozen</h3>
+              <a href="https://www.instagram.com/sobaefrozen/?hl=en" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://docs.google.com/presentation/d/1A0nHdS0uIjVgI6z1DBDI_Gd78AW6QehB/edit?usp=drive_link&ouid=118223080494002328923&rtpof=true&sd=true" target="_blank" rel="noreferrer">Presentation</a>
+            </div>
+
+            <div class="link-group">
+              <h3>Moja Love</h3>
+              <a href="https://x.com/mojalovetv" target="_blank" rel="noreferrer">X</a>
+              <a href="https://www.instagram.com/mojalovetv/" target="_blank" rel="noreferrer">Instagram</a>
+            </div>
+
+            <div class="link-group">
+              <h3>Sizwe Studios</h3>
+              <a href="https://www.instagram.com/sizwe.studio/" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://www.instagram.com/thisis_pulse/" target="_blank" rel="noreferrer">Pulse</a>
+            </div>
+
+            <div class="link-group">
+              <h3>Wakanda Food Accelerator</h3>
+              <a href="https://drive.google.com/file/d/1IsQDkXQjvy4ER0FBWZdv-aAPUslnOKBJ/view?usp=drive_link" target="_blank" rel="noreferrer">Brand Guide</a>
+            </div>
+
+            <div class="link-group">
+              <h3>Ferdinand Louw Interiors</h3>
+              <a href="https://www.instagram.com/ferdilouw_interiors" target="_blank" rel="noreferrer">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-light" id="contact">
+        <div class="container-page">
+          <div class="contact-box">
+            <p class="eyebrow">Contact</p>
+            <h2>Let&apos;s work together</h2>
+            <p>If you are looking for growth-focused content, clear messaging, and practical campaign strategy, I&apos;d love to hear about your goals.</p>
+            <div class="contact-list">
+              <a href="mailto:vuyisilephika3@gmail.com">vuyisilephika3@gmail.com</a>
+              <a href="https://www.linkedin.com/in/vuyisile-phika-154b46159/" target="_blank" rel="noreferrer">linkedin.com/in/vuyisilephika</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const mediaItems = [
+        { category: 'Campaign work', title: 'Portfolio image 01', helper: 'A clear visual showing the quality and direction of my campaign work.', image: 'Images/Screenshot%202026-04-08%20at%2016.24.59.png' },
+        { category: 'Campaign work', title: 'Portfolio image 02', helper: 'A campaign and content example used to support brand visibility and engagement.', image: 'Images/Screenshot%202026-04-08%20at%2016.25.22.png' },
+        { category: 'Campaign work', title: 'Portfolio image 03', helper: 'Creative content designed to strengthen brand messaging and audience connection.', image: 'Images/Screenshot%202026-04-08%20at%2016.25.52.png' },
+        { category: 'Campaign work', title: 'Portfolio image 04', helper: 'A design and brand support image that reflects clear, professional communication.', image: 'Images/Screenshot%202026-04-08%20at%2016.27.05.png' },
+        { category: 'Campaign work', title: 'Portfolio image 05', helper: 'A visual example of how content supports audience engagement and brand trust.', image: 'Images/Screenshot%202026-04-08%20at%2016.38.28.png' },
+        { category: 'Campaign work', title: 'Portfolio image 06', helper: 'A visual piece from my work showing strategic content and campaign thinking.', image: 'Images/Screenshot%202026-04-08%20at%2016.42.18.png' },
+        { category: 'Campaign work', title: 'Portfolio image 07', helper: 'Brand storytelling and campaign visuals used to make the message clearer.', image: 'Images/Screenshot%202026-04-08%20at%2016.42.29.png' },
+        { category: 'Campaign work', title: 'Portfolio image 08', helper: 'A concise visual example of content that supports business growth and reach.', image: 'Images/Screenshot%202026-04-08%20at%2016.43.19.png' },
+        { category: 'Campaign work', title: 'Portfolio image 09', helper: 'Creative and strategic visual work designed to help the brand stand out.', image: 'Images/Screenshot%202026-04-08%20at%2016.44.05.png' },
+        { category: 'Campaign work', title: 'Portfolio image 10', helper: 'Content that supports stronger positioning, clear messaging, and campaign momentum.', image: 'Images/Screenshot%202026-04-08%20at%2016.44.48.png' },
+        { category: 'Campaign work', title: 'Portfolio image 11', helper: 'A visual example of practical and professional content execution.', image: 'Images/Screenshot%202026-04-08%20at%2016.45.02.png' },
+        { category: 'Campaign work', title: 'Portfolio image 12', helper: 'A social and campaign example showing how marketing ideas are turned into action.', image: 'Images/Screenshot%202026-04-08%20at%2016.46.00.png' },
+        { category: 'Campaign work', title: 'Portfolio image 13', helper: 'Another example of content created to improve clarity, visibility, and engagement.', image: 'Images/Screenshot%202026-04-08%20at%2016.46.30.png' },
+        { category: 'Campaign work', title: 'Portfolio image 14', helper: 'A visual supporting my work in brand storytelling and digital growth strategy.', image: 'Images/Screenshot%202026-04-08%20at%2016.47.51.png' },
+        { category: 'Campaign work', title: 'Portfolio image 15', helper: 'A project image showing how content and campaign ideas are structured for growth.', image: 'Images/Screenshot%202026-04-08%20at%2016.48.07.png' },
+        { category: 'Campaign work', title: 'Portfolio image 16', helper: 'A sample of the visual work that supports brand consistency and online presence.', image: 'Images/Screenshot%202026-04-08%20at%2016.49.22.png' },
+        { category: 'Campaign work', title: 'Portfolio image 17', helper: 'A campaign-related image used to show the impact of strong marketing execution.', image: 'Images/Screenshot%202026-04-08%20at%2016.57.11.png' },
+        { category: 'Campaign work', title: 'Portfolio image 18', helper: 'A final visual example from my content and growth work.', image: 'Images/Screenshot%202026-04-08%20at%2016.58.08.png' },
+        { category: 'Campaign work', title: 'Portfolio image 19', helper: 'A portfolio image showing the style, structure, and purpose behind my work.', image: 'Images/Screenshot%202026-04-08%20at%2016.58.56.png' },
+        { category: 'Campaign work', title: 'Portfolio image 20', helper: 'A final visual from my portfolio that reflects the work I do in marketing and content.', image: 'Images/Screenshot%202026-04-16%20at%2014.54.09.png' },
+        { category: 'Campaign work', title: 'Portfolio image 21', helper: 'An image from the set that supports the overall story of brand growth and strategy.', image: 'Images/Screenshot%202026-04-16%20at%2014.54.31.png' }
+      ];
+
+      let currentSlide = 0;
+      const mediaImage = document.getElementById('mediaImage');
+      const mediaTitle = document.getElementById('mediaTitle');
+      const mediaCategory = document.getElementById('mediaCategory');
+      const mediaCounter = document.getElementById('mediaCounter');
+      const mediaHelper = document.getElementById('mediaHelper');
+      const dotsWrap = document.getElementById('sliderDots');
+
+      function renderDots() {
+        dotsWrap.innerHTML = '';
+        mediaItems.forEach((_, index) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'slider-dot' + (index === currentSlide ? ' active' : '');
+          dot.setAttribute('aria-label', `Go to ${mediaItems[index].title}`);
+          dot.addEventListener('click', () => {
+            currentSlide = index;
+            renderMedia();
+          });
+          dotsWrap.appendChild(dot);
+        });
+      }
+
+      function renderMedia() {
+        const item = mediaItems[currentSlide];
+        mediaImage.src = item.image;
+        mediaImage.alt = item.title;
+        mediaTitle.textContent = item.title;
+        mediaCategory.textContent = item.category;
+        mediaCounter.textContent = `${currentSlide + 1} / ${mediaItems.length}`;
+        mediaHelper.textContent = item.helper;
+        renderDots();
+      }
+
+      document.getElementById('prevMedia').addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + mediaItems.length) % mediaItems.length;
+        renderMedia();
+      });
+
+      document.getElementById('nextMedia').addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % mediaItems.length;
+        renderMedia();
+      });
+
+      renderMedia();
+
+      const designSegments = [
+        {
+          title: 'Eat Naturale',
+          folder: 'public/design-collateral/Eat%20Naturale',
+          images: [
+            'PHOTO-2024-04-02-10-06-23.jpg',
+            'PHOTO-2024-04-02-10-06-24%202.jpg',
+            'PHOTO-2024-04-02-10-06-24.jpg',
+            'PHOTO-2024-05-13-16-57-08.jpg',
+            'PHOTO-2024-05-15-11-25-25.jpg',
+            'PHOTO-2024-05-15-11-25-26%202.jpg',
+            'PHOTO-2024-05-15-11-25-26.jpg',
+            'PHOTO-2024-06-10-23-24-47.jpg',
+            'PHOTO-2024-06-10-23-24-48.jpg'
+          ]
+        },
+        {
+          title: 'Freelance',
+          folder: 'public/design-collateral/Freelance',
+          images: [
+            'Screenshot%202026-10-02%20at%2011.17.20.png',
+            'Screenshot%202026-10-02%20at%2011.17.44.png'
+          ]
+        },
+        {
+          title: 'Lean Scaling Co',
+          folder: 'public/design-collateral/Lean%20Scaling%20Co',
+          images: [
+            'Screenshot%202026-10-02%20at%2012.08.30.png',
+            'Screenshot%202026-10-02%20at%2012.08.42.png',
+            'Screenshot%202026-10-02%20at%2012.09.00.png',
+            'Screenshot%202026-10-02%20at%2012.09.13.png',
+            'Screenshot%202026-10-02%20at%2012.09.27.png'
+          ]
+        },
+        {
+          title: 'Logos',
+          folder: 'public/design-collateral/Logos',
+          images: [
+            'Screenshot%202026-10-02%20at%2012.37.05.png',
+            'Screenshot%202026-10-02%20at%2012.37.12.png',
+            'Screenshot%202026-10-02%20at%2012.37.17.png'
+          ]
+        },
+        {
+          title: 'Reflection',
+          folder: 'public/design-collateral/Reflection',
+          images: [
+            'Screenshot%202026-10-02%20at%2012.43.56.png',
+            'Screenshot%202026-10-02%20at%2012.44.20.png',
+            'Screenshot%202026-10-02%20at%2012.44.38.png'
+          ]
+        },
+        {
+          title: 'Sukume',
+          folder: 'public/design-collateral/Sukume',
+          images: ['Screenshot%202026-10-02%20at%2012.11.45.png']
+        },
+        {
+          title: 'Wakanda Food Accelerator',
+          folder: 'public/design-collateral/Wakanda%20Food%20Accelerator',
+          images: [
+            'Screenshot%202026-10-02%20at%2012.39.17.png',
+            'Screenshot%202026-10-02%20at%2012.39.41.png',
+            'Screenshot%202026-10-02%20at%2012.39.51.png',
+            'Screenshot%202026-10-02%20at%2012.40.00.png',
+            'Screenshot%202026-10-02%20at%2012.40.12.png',
+            'Screenshot%202026-10-02%20at%2012.40.19.png',
+            'Screenshot%202026-10-02%20at%2012.40.29.png'
+          ]
+        },
+        {
+          title: 'Botlhale AI',
+          folder: 'public/design-collateral/botlhale%20ai',
+          images: [
+            'Screenshot%202026-10-02%20at%2012.22.22.png',
+            'Screenshot%202026-10-02%20at%2012.22.34.png',
+            'Screenshot%202026-10-02%20at%2012.23.24.png'
+          ]
+        }
+      ];
+
+      const designGrid = document.getElementById('designGrid');
+      designSegments.forEach((segment) => {
+        const card = document.createElement('div');
+        card.className = 'design-segment';
+
+        const head = document.createElement('div');
+        head.className = 'segment-head';
+        head.innerHTML = `<h3>${segment.title}</h3><span class="segment-chip">${segment.images.length} images</span>`;
+
+        const imagesWrap = document.createElement('div');
+        imagesWrap.className = 'segment-images';
+        segment.images.forEach((imageName) => {
+          const figure = document.createElement('div');
+          figure.className = 'segment-image';
+          const img = document.createElement('img');
+          img.src = `${segment.folder}/${imageName}`;
+          img.alt = `${segment.title} ${imageName}`;
+          figure.appendChild(img);
+          imagesWrap.appendChild(figure);
+        });
+
+        card.appendChild(head);
+        card.appendChild(imagesWrap);
+        designGrid.appendChild(card);
+      });
+
+      const canvas = document.getElementById('snakeCanvas');
+      const ctx = canvas.getContext('2d');
+      const gridSize = 20;
+      const tileCount = canvas.width / gridSize;
+      let snake = [{ x: 10, y: 10 }];
+      let direction = { x: 1, y: 0 };
+      let nextDirection = { x: 1, y: 0 };
+      let food = { x: 15, y: 10 };
+      let score = 0;
+      let gameLoop;
+
+      function randomFood() {
+        food = {
+          x: Math.floor(Math.random() * tileCount),
+          y: Math.floor(Math.random() * tileCount)
+        };
+        for (let segment of snake) {
+          if (segment.x === food.x && segment.y === food.y) {
+            randomFood();
+            return;
+          }
+        }
+      }
+
+      function resetGame() {
+        snake = [{ x: 10, y: 10 }];
+        direction = { x: 1, y: 0 };
+        nextDirection = { x: 1, y: 0 };
+        score = 0;
+        randomFood();
+      }
+
+      function drawBoard() {
+        ctx.fillStyle = '#020817';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        for (let x = 0; x < tileCount; x++) {
+          for (let y = 0; y < tileCount; y++) {
+            ctx.strokeStyle = 'rgba(148,163,184,0.08)';
+            ctx.strokeRect(x * gridSize, y * gridSize, gridSize, gridSize);
+          }
+        }
+      }
+
+      function drawSnake() {
+        snake.forEach((segment, index) => {
+          ctx.fillStyle = index === 0 ? '#5eead4' : '#8b5cf6';
+          ctx.fillRect(segment.x * gridSize + 1, segment.y * gridSize + 1, gridSize - 2, gridSize - 2);
+        });
+      }
+
+      function drawFood() {
+        ctx.fillStyle = '#fbbf24';
+        ctx.fillRect(food.x * gridSize + 3, food.y * gridSize + 3, gridSize - 6, gridSize - 6);
+      }
+
+      function updateSnake() {
+        direction = nextDirection;
+        const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+
+        if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
+          resetGame();
+          return;
+        }
+
+        for (let segment of snake) {
+          if (segment.x === head.x && segment.y === head.y) {
+            resetGame();
+            return;
+          }
+        }
+
+        snake.unshift(head);
+
+        if (head.x === food.x && head.y === food.y) {
+          score += 10;
+          randomFood();
+        } else {
+          snake.pop();
+        }
+      }
+
+      function tick() {
+        drawBoard();
+        updateSnake();
+        drawFood();
+        drawSnake();
+      }
+
+      document.addEventListener('keydown', (event) => {
+        const keyMap = {
+          ArrowUp: { x: 0, y: -1 },
+          ArrowDown: { x: 0, y: 1 },
+          ArrowLeft: { x: -1, y: 0 },
+          ArrowRight: { x: 1, y: 0 }
+        };
+
+        if (!keyMap[event.key]) return;
+        const next = keyMap[event.key];
+        if (next.x === -direction.x && next.y === -direction.y) return;
+        nextDirection = next;
+      });
+
+      clearInterval(gameLoop);
+      gameLoop = setInterval(tick, 120);
+    </script>
+  </body>
+</html>
